@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <title>Exercise Tracker MicroService API</title>
+      <meta name="author" content="Luka Mohar">
+      <meta name="keywords" content="exercise,tracker,api,fitness,welness,lifestyle,health,healthy,API,log">
+      <meta name="description" content="API for tracking exercises: POST endpoints and GET endpoint">
+      <link rel="shortcut icon" href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico" type="image/x-icon"/>
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+      <link href="style.css" rel="stylesheet" type="text/css">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+   </head>
+
+   <body>
+      <div class="container">
+         <h1>Exercise tracker API</h1>
+            <h3>Create a New User</h3>
+        <p>
+          You can use the <code>POST /api/exercise/new-user</code> endpoint, passing in a "username" to create a new user, which returns the
+          object <code>{ username: "test_user_1954", _id: "9ysxuu"}</code>. You can then use the ID to track the exercises.
+        </p>
+        
+          <form action="/api/exercise/new-user" method="post">
+            <p class="bold white">
+              Test user create:
+            </p>
+            <input id="uname" type="text" name="username" placeholder="username">
+            <input type="submit" value="Test">
+          </form>
+          <h3>
+            Add Exercises to the User
+          </h3>
+          <p>
+          Use the <code>POST /api/exercise/add</code> endpoint, passing in userId, description, duration (Number) and date (in yyyy-mm-dd format) to add the exercises.
+          </p>
+          <form action="/api/exercise/add" method="post">
+            <p class="bold white">Test add exercises</p>
+            <p></p>
+            <input id="uid" type="text" name="userId" placeholder="userId*">
+            <input id="desc" type="text" name="description" placeholder="description*">
+            <input id="dur" type="text" name="duration" placeholder="duration* (mins.)">
+            <input id="dat" type="text" name="date" placeholder="date (yyyy-mm-dd)">
+            <input type="submit" value="Test">
+          </form>
+          <h3>
+            Get users exercise log  
+          </h3>
+            <p>Use the <code>GET /api/exercise/log?{userId}[&amp;from][&amp;to][&amp;limit]</code> endpoint to retrieve the exercises.</p>
+            <p>
+            <strong>userId</strong> is required, the rest of the fields are optional.  
+            </p>
+          <form action="/api/exercise/log" method="get">
+            <p class="bold white">Test Get user exercise log</p>
+            <input id="useId" type="text" name="userId" placeholder="userId*">
+            <input id="fro" type="text" name="from" placeholder="optional from date (yyyy-mm-dd)">
+            <input id="to" type="text" name="to" placeholder="optional to date (yyyy-mm-dd)">
+            <input id="lim" type="text" name="limit" placeholder="optional limit (number)">
+            <input type="submit" value="Test">
+          </form>
+      </div>
+   </body>
+
+</html>
